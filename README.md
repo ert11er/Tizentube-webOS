@@ -1,3 +1,5 @@
+⚠️ This Project is NOT associated with [webosbrew/youtube-webos](https://github.com/webosbrew/youtube-webos) in any way. I have used that as a template.
+
 <h1 align="center">
   YouTube Ad-Free
 </h1>
