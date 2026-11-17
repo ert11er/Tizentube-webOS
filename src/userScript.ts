@@ -1,31 +1,33 @@
-import 'whatwg-fetch';
-import './domrect-polyfill';
+(function () {
+  const SCRIPT_URL = "https://jsdelivr.net";
+  const CACHE_KEY = "tt_cached_userscript";
 
-import { handleLaunch } from './utils';
+  function runScript(code) {
+    try {
+      (0, eval)(code);
+    } catch (err) {
+      console.error("[TT-webOS] Error running userScript:", err);
+    }
+  }
 
-document.addEventListener(
-  'webOSRelaunch',
-  (evt) => {
-    console.info('RELAUNCH:', evt, window.launchParams);
-    handleLaunch(evt.detail);
-  },
-  true
-);
+  const cached = localStorage.getItem(CACHE_KEY);
+  if (cached) {
+    runScript(cached);
+  }
 
-import './app_api/index';
-import './adblock.js';
-import './hooks/json-stringify';
-import './shorts.js';
-import './sponsorblock.js';
-import './ui.js';
-import './font-fix.css';
-import './thumbnail-quality';
-import './screensaver-fix';
-import './yt-fixes.css';
-import './watch.js';
-import './video-quality';
-import './lang-settings-fix';
-import './remove-endscreen';
-import './hooks';
-import './block-webos-cast';
-import './auto-account-select';
+  fetch(SCRIPT_URL, { cache: "no-store" })
+    .then((res) => {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.text();
+    })
+    .then((code) => {
+      if (code && code !== cached) {
+        localStorage.setItem(CACHE_KEY, code);
+        if (!cached) {
+          // Reload once on first launch so early JSON.parse hooks attach before YouTube boots
+          location.reload();
+        }
+      }
+    })
+    .catch((err) => console.warn("[TT-webOS] Failed to fetch update from jsDelivr:", err));
+})();

@@ -1,7 +1,7 @@
 {
-  "name": "youtube-webos",
+  "name": "TizenTube-WebOS",
   "version": "0.5.3",
-  "description": "Ad-free YouTube app for webOS",
+  "description": "TizenTube Cobalt ported to WebOS",
   "type": "module",
   "main": "index.js",
   "scripts": {

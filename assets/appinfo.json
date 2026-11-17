@@ -3,7 +3,7 @@
   "vendor": "tizentube.app",
   "type": "web",
   "main": "index.html",
-  "title": "Tizentube Cobalt",
+  "title": "TizenTube Cobalt",
   "icon": "icon.png",
   "largeIcon": "largeIcon.png",
   "mediumLargeIcon": "mediumLargeIcon.png",
