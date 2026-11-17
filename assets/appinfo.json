@@ -1,9 +1,9 @@
 {
-  "id": "youtube.leanback.v4",
-  "vendor": "webosbrew.org",
+  "id": "com.reisxd.tizentube.webos",
+  "vendor": "tizentube.app",
   "type": "web",
   "main": "index.html",
-  "title": "YouTube AdFree",
+  "title": "Tizentube Cobalt",
   "icon": "icon.png",
   "largeIcon": "largeIcon.png",
   "mediumLargeIcon": "mediumLargeIcon.png",
